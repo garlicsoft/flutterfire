@@ -100,10 +100,16 @@ class MethodChannelFirebaseDynamicLinks extends FirebaseDynamicLinksPlatform {
           PendingDynamicLinkDataIOS(minimumVersion: data['minimumVersion']);
     }
 
+    Map<dynamic, dynamic>? utmParameters;
+    if (linkData['utmParameters'] != null) {
+      utmParameters = linkData['utmParameters'];
+    }
+
     return PendingDynamicLinkData(
       link: Uri.parse(link),
       android: androidData,
       ios: iosData,
+      utmParameters: utmParameters ?? {},
     );
   }
 

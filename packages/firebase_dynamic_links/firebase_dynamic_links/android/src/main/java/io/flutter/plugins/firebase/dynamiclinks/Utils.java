@@ -35,13 +35,13 @@ public class Utils {
     Uri link = pendingDynamicLinkData.getLink();
     dynamicLink.put("link", link != null ? link.toString() : null);
 
-    Map<String, Object> utmParameters = new HashMap<>();
-
+    Map<String, String> utmParameters = new HashMap<>();
     Set<String> keys = pendingDynamicLinkData.getUtmParameters().keySet();
-    for (String key : keys) {
-      utmParameters.put(key, pendingDynamicLinkData.getUtmParameters().get(key).toString());
+    Iterator<String> iterator = keys.iterator();
+    while (iterator.hasNext()) {
+        String key = iterator.next();
+        utmParameters.put(key, pendingDynamicLinkData.getUtmParameters().getString(key));
     }
-
     dynamicLink.put("utmParameters", utmParameters);
 
     Map<String, Object> androidData = new HashMap<>();

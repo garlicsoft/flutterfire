@@ -37,7 +37,8 @@ public class Utils {
 
     Map<String, Object> utmParameters = new HashMap<>();
 
-    for (String key : pendingDynamicLinkData.getUtmParameters().keySet()) {
+    Set<String> keys = pendingDynamicLinkData.getUtmParameters().keySet();
+    for (String key : keys) {
       utmParameters.put(key, pendingDynamicLinkData.getUtmParameters().get(key).toString());
     }
 

@@ -7,7 +7,8 @@ import 'pending_dynamic_link_data_ios.dart';
 
 /// Provides data from received dynamic link.
 class PendingDynamicLinkData {
-  const PendingDynamicLinkData({required this.link, this.android, this.ios});
+  const PendingDynamicLinkData(
+      {required this.link, this.android, this.ios, this.utmParameters});
 
   /// Provides Android specific data from received dynamic link.
   ///
@@ -24,11 +25,14 @@ class PendingDynamicLinkData {
   /// Deep link parameter of the dynamic link.
   final Uri link;
 
+  final Map<String, dynamic>? utmParameters;
+
   /// Returns the current instance as a [Map].
   Map<String, dynamic> asMap() => <String, dynamic>{
         'ios': ios?.asMap(),
         'android': android?.asMap(),
         'link': link.toString(),
+        'utmParameters': utmParameters,
       };
 
   @override

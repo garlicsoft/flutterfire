@@ -9,6 +9,9 @@ import androidx.annotation.Nullable;
 import com.google.firebase.dynamiclinks.PendingDynamicLinkData;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Iterator;
+import java.util.Set;
+import android.os.Bundle;
 
 public class Utils {
   static Map<String, Object> getExceptionDetails(@Nullable Exception exception) {

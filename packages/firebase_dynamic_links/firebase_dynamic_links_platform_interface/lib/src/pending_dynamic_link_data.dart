@@ -32,7 +32,7 @@ class PendingDynamicLinkData {
         'ios': ios?.asMap(),
         'android': android?.asMap(),
         'link': link.toString(),
-        'utmParameters': utmParameters,
+        'utmParameters': utmParameters ?? {},
       };
 
   @override
